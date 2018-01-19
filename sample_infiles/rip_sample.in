@@ -1,0 +1,77 @@
+ &userin
+ idotitle=1,titlecolor='def.foreground',
+ ptimes=0,6,12,
+ ptimeunits='h',tacc=120,timezone=-7,iusdaylightrule=1,
+ iinittime=1,ifcsttime=1,ivalidtime=1,inearesth=0,
+ flmin=.09, frmax=.92, fbmin=.10, ftmax=.85,
+ ntextq=0,ntextcd=0,fcoffset=0.0,idotser=0,
+ idescriptive=1,icgmsplit=0,maxfld=10,itrajcalc=0,imakev5d=0,
+ ncarg_type='cgm'
+ /
+ &trajcalc
+ rtim=15,ctim=6,dtfile=3600.,dttraj=600.,vctraj='s',
+ xjtraj=95,90,85,80,75,70,65,80.6,80.6,80.6,80.6,80.6,80.6,
+ yitraj=50,55,60,65,70,75,80,77,77,77,77,77,77,
+ zktraj=25,25,25,25,25,25,25,27,25,22,19,16,13,
+ ihydrometeor=0
+ /
+===========================================================================
+----------------------    Plot Specification Table    ---------------------
+===========================================================================
+feld=xlus; ptyp=hh; chfl; cosq=1,dark.gray,2,light.yellow,3,light.green,>
+   4,yellow,5,yellow,6,light.green,7,light.yellow,8,light.green,9,light.green,>
+   10,light.yellow,11,green,12,dark.green,13,green,14,dark.green,15,green,>
+   16,light.blue,17,green,18,green,19,light.gray,20,light.gray,21,dark.green,>
+   22,light.gray,23,light.gray,24,white
+feld=map; ptyp=hb
+feld=tic; ptyp=hb
+time=0
+===========================================================================
+feld=ter; ptyp=hc; cint=100; colr=red
+feld=map; ptyp=hb
+feld=tic; ptyp=hb
+time=0
+===========================================================================
+feld=ter; ptyp=hc; cint=50; cmth=fill; cosq=-1e-5,light.blue,1e-5,white,>
+   3000,brown
+feld=map; ptyp=hb
+feld=tic; ptyp=hb
+time=0
+===========================================================================
+feld=tmc; ptyp=hc; vcor=s; levs=1fb; cint=2; cmth=fill;>
+   cosq=-32,light.violet,-24,violet,-16,blue,-8,green,0,yellow,8,red,>
+   16,orange,24,brown,32,light.gray
+feld=slp; ptyp=hc; cint=2; linw=2
+feld=uuu,vvv; ptyp=hv; vcmx=-1; colr=white; intv=5
+feld=map; ptyp=hb
+feld=tic; ptyp=hb
+===========================================================================
+feld=tmc; ptyp=hc; vcor=p; levs=850,700,-300,100; cint=2; cmth=fill;>
+   cosq=-32,light.violet,-24,violet,-16,blue,-8,green,0,yellow,8,red,>
+   16,orange,24,brown,32,light.gray
+feld=ght; ptyp=hc; cint=30; linw=2
+feld=uuu,vvv; ptyp=hv; vcmx=-1; colr=white; intv=5
+feld=map; ptyp=hb
+feld=tic; ptyp=hb
+===========================================================================
+feld=pvo; ptyp=vc; crsa=10,30; crsb=30,10; vcor=p; vwin=1050,200; cint=.25;>
+   cmth=fill; cosq=0,white,4,dark.gray; cbeg=0; cend=5
+feld=the; ptyp=vc; cint=2; colr=red
+feld=uuu,vvv,omg; ptyp=vv
+feld=tic; ptyp=vb
+===========================================================================
+feld=tic; ptyp=sb; sloc=KORD; hodo; sndg
+feld=tmc; ptyp=sc; colr=red
+feld=tdp; ptyp=sc; colr=blue
+feld=uuu,vvv; ptyp=sv; colr=dark.green; hodo; sndg
+===========================================================================
+# The following plot of simulated reflectivity exactly duplicates the
+# standard color scheme used by the U.S. NWS for NEXRAD refelctivity plots.
+feld=dbz; ptyp=hc; vcor=s; levs=1fb; nohl; cbeg=5; cend=75; cint=5;>
+   cmth=fill; cosq=2.5,white,7.5,g05dbz,12.5,g10dbz,17.5,g15dbz,>
+   22.5,g20dbz,27.5,g25dbz,32.5,g30dbz,37.5,g35dbz,42.5,g40dbz,>
+   47.5,g45dbz,52.5,g50dbz,57.5,g55dbz,62.5,g60dbz,67.5,g65dbz,>
+   72.5,g70dbz,77.5,g75dbz
+feld=map; ptyp=hb
+feld=tic; ptyp=hb
+===========================================================================

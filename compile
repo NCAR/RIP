@@ -1,0 +1,64 @@
+#!/bin/csh -f
+
+if ( ! -e configure.rip ) then
+	echo "Do 'configure' first"
+	exit ( 1 ) 
+endif
+
+if  ( ( ! $?NETCDF ) && ( -d netcdf_links ) ) then
+	setenv NETCDF `pwd`/netcdf_links
+	setenv temp_netcdf 1
+else
+	setenv temp_netcdf 0
+endif
+
+echo " "
+echo "**** Compiling rip ****"
+echo " "
+
+if      ( ${#argv} == 0 ) then
+( cd src ; make -i -r all )
+     if ( -e src/rip ) then
+             ln -sf src/rip .
+     endif
+     if ( -e src/ripcomp ) then
+             ln -sf src/ripcomp .
+     endif
+     if ( -e src/ripcut ) then
+             ln -sf src/ripcut .
+     endif
+     if ( -e src/ripdp_mm5 ) then
+             ln -sf src/ripdp_mm5 .
+     endif
+     if ( -e src/ripdp_wrfarw ) then
+             ln -sf src/ripdp_wrfarw .
+     endif
+     if ( -e src/ripdp_mpas ) then
+             ln -sf src/ripdp_mpas .
+     endif
+     if ( -e src/ripdp_wrfnmm ) then
+             ln -sf src/ripdp_wrfnmm .
+     endif
+     if ( -e src/ripinterp ) then
+             ln -sf src/ripinterp .
+     endif
+     if ( -e src/ripshow ) then
+             ln -sf src/ripshow .
+     endif
+     if ( -e src/showtraj ) then
+             ln -sf src/showtraj .
+     endif
+     if ( -e src/tabdiag ) then
+             ln -sf src/tabdiag .
+     endif
+     if ( -e src/upscale ) then
+             ln -sf src/upscale .
+     endif
+endif
+
+
+if ( $temp_netcdf == 1 ) then
+	unsetenv NETCDF
+endif
+
+exit(0)

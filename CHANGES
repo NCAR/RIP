@@ -1,0 +1,292 @@
+-----------------------------------------------------
+Update: January, 2018
+ - Add ripdp_mpas for processing mpas model output.
+ - Add TKE and EL processing to ripdp_wrfarw.
+ - Implement an updated configure/compile procedure.
+ - Modify arch/configure.defaults for modern libraries.
+-----------------------------------------------------
+Update: April, 2017
+ - Add new physics options from WRFV3.9 to ripdp_wrfarw.
+-----------------------------------------------------
+Update: April, 2015
+ - Add new physics options from WRFV3.7 to ripdp_wrfarw.
+ - Allow animation of trajectories using tjen=-1.
+ - Allow descriptive labelling of cross-section x-axis using 
+   the lableft and labright keywords (courtesy of Kevin Manning).
+ - Add  a lifted index field (lifti).
+bug fixes:
+ - Fix plotting of trajectories that go off the edge of the domain.
+ - Fix a bug in plotting of colored trajectories.
+ - Fix a bug in tabdiag for printouts more than 80 columns.
+ - Fix a bug in readspec for trajctory computations with no plspec entries.
+-----------------------------------------------------
+Update: April, 2014
+ - Add new physics options from WRFV3.6 to ripdp_wrfarw.
+bug fixes:
+ - Make arrow size in the streamline routine, hstrdrw, a function
+   of the number of grid points. For big grids the arrows are then
+   visible.
+-----------------------------------------------------
+Update: October, 2013   
+ - Improved the appearance of the skew-t plots.
+ - Update and improve the information from the minfo lines.
+ - Upgrade the sounding stats routine.
+ - New fields tropp - tropopause pressure, refalt - the 10 dBZ 
+   reflectivity altitude, and maxrefl10, the maximum 10 cm reflectivity
+   from the 3D WRF output array.
+bug fixes:
+ - Increase number of wrf output variables that can be processed by
+   ripdp_wrfarw and make it a parameter that can be made larger in the future.
+ - Fix the creation of vardesc in ripdp_wrfarw.f.
+ - Repair the pltitle call in the hurricane track plot.
+-----------------------------------------------------
+Update: April, 2013   
+ - Add new namelist option, noplots. This option skips plotting
+   when producing time series output.
+ - Add new namelist option, ntextfn. This option controls the
+   NCAR Graphics text font.
+ - A new field called 'unity' creates an array filled with ones 
+   which can be used with addf to change the plotted units without
+   having to modify source.
+ - Add new fields for tropopause winds and maximum winds. These 
+   fields can be supplied by the GFS (and perhaps other models) via
+   metgrid.
+ - Increase default number of trajectories, improve error handling 
+   for trajectories, and allow coloring of trajectories by time.
+ - Add horizontal windowing capability to profile plots. If xwin and
+   ywin are defined for ptyp=pc, then an average is taken over that 
+   area for the profile.
+ - Add new WRF physics options to descriptive labels in ripdp_wrfarw.
+ - Update Doc/ripug.doc.
+bug fixes:
+ - Fix the computation of vor3d. Courtesy of Kristian Horvath.
+ - Fix error message printing from ripdp_wrfnmm.
+ - Increase length of character strings in ripdp to accommodate long
+   names (currently only found in HWRF). Courtesy Greg Thompson, NCAR
+ - Add capability to process NMM nests. Courtesy Greg Thompson, NCAR
+-----------------------------------------------------
+Update: March, 2009   
+ - Change from the original make to configure/compile
+ - Add a new option "cval" to allow users to manually
+   specify the level to use for contour plots.
+-----------------------------------------------------
+Update: March, 2008
+ - Add the new US daylight saving rules effective since
+   2007 to the code.
+ - Add the ability to output to pd/pdf/x11
+ - Added a namelist switch (istopmiss) to indicate whether RIP should
+   stop when it encounters a missing field (the default) or to continue
+   (useful for real-time or shared .in files)
+ - Added new WRFV3.0 physics descriptions to ripdp_wrfarw info labels.
+ - Updated the RIP Users' Guide (ripug.htm) to reflect
+   all changes mentioned above.
+-----------------------------------------------------
+Update: June 19, 2007
+ -Add changes so that data from WRF-NMM can be processed.
+  ripdp_wrf.f has now split into two different versions:
+  ripdp_wrfarw.f and ripdp_wrfnmm.f.
+ -Added capability to RIPDP and RIP to handle WRF-NMM's
+  stretched rotated cylindrical equidistant projection.
+  This includes the ability to apply the map factor only
+  in the x direction, not the y.
+ -Added a lookup table for Ferrier microphysics calculations.
+ -Moved all sample input files into a new subdirectory
+  called "sample_infiles".
+ -Updated the RIP Users' Guide (ripug.htm) to reflect
+  all changes mentioned above.
+-----------------------------------------------------
+-----------------------------------------------------
+Update: August 31, 2006
+Add changes so that all data from WPS can be processed
+	Only file effected is src/ripdp_wrf.f
+-----------------------------------------------------
+-----------------------------------------------------
+
+Bugs fixed
+==============================
+
+- fixed missing k-loop in brnshr.f
+- fixed problem in capecalc3d when no EL exists
+- fixed problems with non-unique lat/lon variables in calls to locinterp 
+- fixed problem in dBZ calculation for low dBZ values
+- fixed wrong title of "vageo" field
+- fixed wrong units of "clg" field
+- fixed problem in pseudoadiabat lookup table when p < min value of p in table
+- fixed problem with direction labels ("N", "NE", "E", "SE", etc.) in
+  cross sections
+
+Improvements
+==============================
+
+- made improvements to make RIP more robust for arbitrarily large domains
+
+   - removed hardwired dimensions in smooth.f
+   - increased values of niam, ncs for area-filling subroutine calls
+   - removed hard-wired work array from smooth.f.  Now it requires a work array
+     to be passed in, which can be dynamically allocated.
+   - changed definition of nscrs (the horizontal dimension of a vertical
+     cross section) so that it does not get outrageously large, and
+     correspondingly limitted the dimension mabpl
+   - defined parameter iwrklen in hcondraw and vcondraw, for dimensioning of
+     area-fill workspace.  It is now set to a much higher value than the
+     previously set dimensions.
+   - increased hardwired dimensions in v5df.h
+   - increased the axis label character string to 5 characters in hticdraw
+     and vticdraw.f
+
+- upgraded ripdp_wrf to handle idealized WRF model output
+
+   - set nproj (map projection) to 0, which indicates idealized model output
+     (i.e., no map projection), but RIP treats this as Mercator (with some bogus
+     map/domain parameters), just to make sure everything goes smoothly if user
+     accidentally asks for a map.
+   - set initial time to 00 UTC 1 January 1940, just to make RIP happy
+
+- upgraded ripdp_wrf to handle model input files
+
+   - added new code to calculate pressure, which is not available as a 3-d
+     array in the WRf input file
+
+- upgraded ripdp_wrf to handle WRF version 2+ output with proper
+  map definition parameters
+
+- upgraded ripdp_wrf to produce improved, multi-line .minfo file, and rip
+  can print out however many minfo lines are available.  Max number of
+  lines printed on plot can be set by user with nmin=N
+
+- upgraded ripdp_wrf and rip to handle nonzero true latitude with Mercator
+  projection
+
+- incorporated cell-filling option (in addition to the standard area-filling)
+  for color-filled contours
+
+   - made necessary changes in cpmpxy.f and fy.f to accomodate cell filling
+   - created new integer array ipslab, required to hold color indices for cells 
+
+- improved domain rotation ("rota") functionality
+
+   - cleaned up and simplified code
+      - removed "rota" stuff from routine maptform
+      - created routines rotpslab and rotipslab to handle repeated task of
+        rotating pslab arrays
+   - changed "rrota" to "irota" (integer) to avoid any exactness errors
+   - set up lat/lon labeling to work with "rota" now
+   - made "rota" work for all horizontal plot types (exception still remains that
+     rotation of the map background only works for polar stereographic
+     projections)
+   - added temporary arrays pslabt and ipslabt, needed for rotating data
+
+- incorporated a smoothed surface pressure field (sfpsm array) for SLP reduction
+  and below-ground interpolation--seems to improve results 
+
+- added new fields:
+
+   - k-index (feld=k-index)
+   - geostrophic absolute momentum (feld=amtg)
+   - d(theta_e)/dp (feld=stbe)
+   - horizontal vorticity components (feld=vox, feld=voy)
+   - some minor changes/clarifications of "precipitable water" (pcp...)
+     and "column-integrated" (int...) fields
+   - maximum reflectivity in a column (feld=maxdbzX, where X is either c, v
+     or omitted - see RIP User's Guide)
+   - surface dew point temperature (feld=tdsff, tdsfk, tdsfc), computed using 
+     2 m water vapor
+   - surface temperature calculation using 2 m output (feld=tsfc,tsfk,tsff)
+   - horizontal bulk wind shear between surface and up to 6 km (feld=bshXk,
+     where X is the kilometer, 1 to 6)
+
+- created "vertical bar" (feld=vbar), which can be drawn at a specified location
+  in vertical cross sections
+
+- added dash capability for boxes and lines (ptyp=box or ptyp=line)
+
+- upgraded wind barb drawing so that each barb is handled on an individual
+  basis with regard to northern/southern hemisphere protocol for which
+  side of the arrow the barbs are on.  Previously the entire plot was
+  treated as either N or S hemisphere.
+
+- added 'm' (Temperature) as another choice for vertical coordinate
+
+- combined scondraw.f and scondraw_polar.f into one routine (with a polar
+  flag).  Same for svecdraw.f.
+
+- reworked routine frtitle.f to make it more sensible for the various possible
+  choices of information to be plotted in the main frame title
+
+- added function lennonblank.f, which replaced redundant code in several
+  locations
+
+- made it so that contour labels and hi/lo labels are always the same size,
+  instead of being dependent on the size of the viewport.
+
+- removed several routines from ripdp_mm5 and ripdp_wrf that also existed
+  as stand-alone in the RIP source code, to remove redundancy.  (e.g.,
+  mconvert, writefile, fillarray, xtodot, premaptform, maptform, virtual).
+  The Makefile now links the necessary routines to the ripdp programs.
+
+- added height scale to polar skew-T background.
+
+Other changes
+==================================
+
+- made several additions/changes to top-level and source-level Makefiles
+
+- made slight changes to text size and line spacing for various text lines in the
+  RIP plotting frame (you'll notice characters are slightly smaller, but other
+  than that, little difference)
+
+- removed "flight track" code
+
+- made it so that default indicator values of true latitudes (truelat=91.) are
+  no longer carried in rip.  ripdp_mm5 passes the actual default values.
+
+- changed specification of vertical level "from bottom" to "fb".  For example,
+  if you want the lowermost model level, now use "vcor=s; levs=1fb", whereas
+  before it was "vcor=s; levs=b1".
+
+- removed remnant references to "fullsigma" and "halfsigma" from ripdp_mm5.f
+
+- grabbed updated versions of v5d.h, v5d.c, and vis5d.h
+
+- switched to using dashsb exclusively for drawing dashed lines/curves
+  (previously, dashdc was used in one or two places).
+
+- Added new colors to the color.tbl. These color mimic the standard NWS NEXRAD radar plot
+
+- Add a new example of using "feld=dbzv", with colors mentioned above to rip_sample.in
+
+- Add a new directory called "custom_maps", where users must put their custom
+  map definitions if they want to use them. A sample of how such a map should look like has
+  been provided in this directory. In addition hmapdraw.f has been modified to look for
+  the custom_maps in the ${RIP_ROOT}/custom_maps directory.
+
+- New routine "dbzcalc.f" added. This is an update to the old "dbz" routine.
+
+- Improvements added to the capecalc3d.f routine.
+
+- Add an fx function to eliminate vector plotting problems on some LINUX computers. 
+  Thanks to Bob Conzemius of Colorado State University to reporting this.
+
+
+RIP Users' Guide (Doc/ripug.htm)
+============================================
+
+- Upgraded the Users' Guide to reflect all of the changes herein
+
+
+
+
+
+
+
+
+
+In the src directory:
+=====================
+* dbzcalc.f       (New routine, essentially does the same thing as the 'dbz'
+code that was in fields.f, with some minor modifications.)
+* fields.f        (New code for feld=dbz, and feld=vor3d.)
+* hmapdraw.f      (changed so that it looks for custom maps in the
+${RIP_ROOT}/custom_maps directory.)
+* capecalc3d.f    (changed as per discussions with Jim Bresch.)
+

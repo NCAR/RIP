@@ -1,0 +1,33 @@
+#!/bin/csh -f
+
+set DEV_TOP = `pwd`
+
+set TOUCH = ORIG
+if ( ! -e configure.rip ) then
+	touch configure.rip
+	set TOUCH = TOUCH
+endif
+
+set nonomatch
+
+set EXES = ( rip ripcomp ripcut ripdp_mm5 ripdp_wrfarw ripdp_mpas ripdp_wrfnmm ripinterp ripshow showtraj tabdiag upscale )
+
+echo "Remove executables"
+foreach ex  ( $EXES )
+	/bin/rm -f ${ex}
+	/bin/rm -f src/${ex}
+end
+
+/bin/rm -rf ./netcdf_links
+( cd src ; make -i DEV_TOP="${DEV_TOP}" clean )
+
+if ( "$1" == '-a' ) then
+	if ( ( -e configure.rip ) && ( $TOUCH != TOUCH ) ) then
+		/bin/cp configure.rip configure.rip.backup
+		/bin/rm -f configure.rip
+	endif
+endif
+
+if ( ( $TOUCH == TOUCH ) && ( -e configure.rip ) ) then
+	/bin/rm -f configure.rip
+endif

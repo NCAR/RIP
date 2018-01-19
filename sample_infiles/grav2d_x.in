@@ -1,0 +1,31 @@
+ &userin
+ idotitle=1,titlecolor='def.foreground',
+ ptimes=2,-15,2,
+ ptimeunits='m',tacc=1,timezone=-7,iusdaylightrule=1,
+ iinittime=1,ifcsttime=1,ivalidtime=1,inearesth=0,
+ flmin=.09, frmax=.92, fbmin=.10, ftmax=.85,
+ ntextq=0,ntextcd=0,fcoffset=0.0,idotser=0,
+ idescriptive=1,icgmsplit=0,maxfld=10,itrajcalc=0,imakev5d=0
+ /
+ &trajcalc
+ rtim=15,ctim=6,dtfile=3600.,dttraj=600.,vctraj='s',
+ xjtraj=95,90,85,80,75,70,65,80.6,80.6,80.6,80.6,80.6,80.6,
+ yitraj=50,55,60,65,70,75,80,77,77,77,77,77,77,
+ zktraj=25,25,25,25,25,25,25,27,25,22,19,16,13,
+ ihydrometeor=0
+ /
+===========================================================================
+----------------------    Plot Specification Table    ---------------------
+===========================================================================
+feld=the; ptyp=vc; crsa=2,2; crsb=512,2; vcor=s; vwin=1fb,35fb; cint=1; cmth=fill;>
+   cosq=292,violet,293,dark.blue,294,blue,295,dark.green,296,green,>
+   297,yellow,298,orange,299,red,300,red
+feld=uuu; ptyp=vc; cint=5; linw=1; dang=11
+feld=tic; ptyp=vb
+===========================================================================
+feld=the; ptyp=vc; crsa=2,2; crsb=512,2; vcor=s; vwin=1fb,35fb; cint=1; cmth=fill;>
+   cosq=292,violet,293,dark.blue,294,blue,295,dark.green,296,green,>
+   297,yellow,298,orange,299,red,300,red
+feld=www; ptyp=vc; cint=200; linw=1; dang=11
+feld=tic; ptyp=vb
+===========================================================================

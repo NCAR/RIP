@@ -1,0 +1,10 @@
+c
+c   Map transform common block
+c
+c      real*8 rpd_mptf,pi_mptf,dskmc_mptf,xloncr_mptf,
+      real*4 rpd_mptf,pi_mptf,dskmc_mptf,xloncr_mptf,
+     &   rearth1_mptf,rearth2_mptf,ciy_mptf,cjx_mptf,yc_mptf,
+     &   c1_mptf,c2_mptf,cone_mptf,conei_mptf
+      common /mptf/ rpd_mptf,pi_mptf,dskmc_mptf,xloncr_mptf,
+     &   rearth1_mptf,rearth2_mptf,ciy_mptf,cjx_mptf,yc_mptf,
+     &   ihm_mptf,c1_mptf,c2_mptf,cone_mptf,conei_mptf,nproj_mptf

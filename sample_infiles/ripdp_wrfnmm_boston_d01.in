@@ -1,0 +1,6 @@
+ &userin
+ ptimes=0,-24,1,ptimeunits='h',tacc=90.,discard='LANDMASK',
+ iinterp=1,dskmcib=15.,miycorsib=90,mjxcorsib=80,nprojib=1,
+ xlatcib=42.,xloncib=-71.,truelat1ib=42.,truelat2ib=42.,
+ miyib=63,mjxib=77,yicornib=15,xjcornib=2,dskmib=15.
+ /

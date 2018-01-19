@@ -1,0 +1,4 @@
+ &userin
+ ptimes=0,-72,1,ptimeunits='h',tacc=90.,discard='LANDMASK','H2SO4',
+ iexpandedout=1
+ /

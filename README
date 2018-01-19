@@ -1,0 +1,104 @@
+
+VERSION 4 OF RIP PROGRAM
+(updated April 1, 2003)
+
+-----------------------------------------------------
+Update: December, 2006
+Add changes so that all data from WPS can be processed
+	Only file affected is src/ripdp_wrf.f
+Add some typhoon tracking capabilities
+-----------------------------------------------------
+
+This is the main directory of RIP program for visualizing mesoscale model
+output.  Everything a user needs to run the RIP program, except for NCAR
+Graphics and NetCDF libraries, is contained in this directory.
+
+RIP requires NCAR Graphics to run. NCAR Graphics is free and part of the
+NCAR Command Language (NCL).  For information on NCAR Graphics, please visit
+
+    http://ngwww.ucar.edu
+
+Part of RIP (the WRF-model version of the preprocessing program RIPDP) requires
+NetCDF libraries to run.  NetCDF is free software available from
+
+   http://www.unidata.ucar.edu/packages/netcdf
+
+This version of RIP may be run on Cray, unix workstations, and PC
+running Linux.
+
+All fortran source code is located in directory src/.
+
+For bug fixes, please read file CHANGES.  For actual diff files,
+please see directory Diff.
+
+For questions, please send emails to wrfhelp@ucar.edu
+
+-----------------------------------------------------
+
+What is in V4 RIP?
+
+RIP is plotting program developed by Dr. Mark Stoelinga at University of
+Washington. It is currently configured to plot MM5 Version 3 pressure-level
+data; MM4 Version 8 and MM5 Version 1/2/3 sigma level data; and WRF
+mass-coordinate model output.  However, the plotting program itself is general
+enough that it would be quite feasible to plot output from any mesoscale model,
+if a version of the preprocessing program RIPDP was created to translate that
+model output into RIP data files.
+
+RIP4 removed all references to MM5-specific vertical coordinate, such
+as sigma and p-star and so on. All calculations are based solely upon the
+knowledge of height and pressure on the 3D grid and height and pressure
+of the ground (i.e. terrain height and surface pressure).
+
+-----------------------------------------------------
+
+RIP documentation:
+
+The document "A Users' Guide to RIP Version 4", by Mark
+Stoelinga, is a comprenesive guide to all aspects of RIP Version
+4, including set-up (compilation, etc.), data pre-processing with
+the program RIPDP, and the use of RIP itself.  The User's Guide
+is written maintained as a Microsoft Word document, and is also made available
+as an HTML document.  Both can be found in the RIP tar file
+in Doc/ripug.html.  The html document can also be accessed on the web from the
+MM5 Web Site, http://www.mmm.ucar.edu/mm5/documents/ripug_V4.html.
+
+-----------------------------------------------------
+
+NCAR Graphics option: 
+
+If you have NCAR Graphics version 4.3 or newer and wish to use the 
+new RANGS/GSHHS outline data sets, uncomment the relevant code in hmapdraw.f
+(search for RANGS/GSHHS).
+
+-----------------------------------------------------
+IBM operation note:
+
+When running on an IBM SP2, if the namelist in rip.in
+is in the default format of beginning and ending 
+with a "&", then an environment variable must be
+set to recognize this.  The command is:
+
+        setenv XLFRTEOPTS "namelist=old"
+
+.  If one desires to run on the IBM without setting 
+this variable, the namelist delimiters must be modified 
+to begin with "&" and end with "/".
+
+-----------------------------------------------------
+
+Files/directories in this directory:
+
+CHANGES:     will contain changes made to this tar file
+
+Diff/:       directory that contains files with actual differences
+                (generated with "diff") between versions
+Doc/:	     RIP documentation directory
+Makefile:    top-level makefile
+README:	     basic information on RIP
+color.tbl:   color table for RIP
+psadilookup.dat: lookup table for obtaining T from p and theta-e
+x.in:        input files for RIP programs
+tserstn.dat  sample list of stations for time series print out
+src/:        directory that holds all source code for RIP
+stationlist: observation location file 

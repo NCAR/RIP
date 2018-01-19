@@ -1,0 +1,150 @@
+ &userin
+ idotitle=1,titlecolor='def.foreground',
+ ptimes=30,60,
+ ptimeunits='m',tacc=12,timezone=-7,iusdaylightrule=1,
+ iinittime=1,ifcsttime=1,ivalidtime=1,inearesth=0,
+ flmin=.09, frmax=.92, fbmin=.10, ftmax=.85,
+ ntextq=0,ntextcd=0,fcoffset=0.0,idotser=0,
+ idescriptive=1,icgmsplit=0,maxfld=10,itrajcalc=0,imakev5d=0
+ /
+ &trajcalc
+ rtim=15,ctim=6,dtfile=3600.,dttraj=600.,vctraj='s',
+ xjtraj=95,90,85,80,75,70,65,80.6,80.6,80.6,80.6,80.6,80.6,
+ yitraj=50,55,60,65,70,75,80,77,77,77,77,77,77,
+ zktraj=25,25,25,25,25,25,25,27,25,22,19,16,13,
+ ihydrometeor=0
+ /
+===========================================================================
+----------------------    Plot Specification Table    ---------------------
+===========================================================================
+feld=the; ptyp=hc; vcor=z; levs=0.75; cint=.3; cmth=fill;>
+   cosq=298.2,violet,298.5,dark.blue,298.8,blue,299.1,dark.green,299.4,green,>
+   299.7,yellow,300.0,tan,300.3,orange,300.6,red,300.9,red,301.1,med.red
+feld=prs; ptyp=hc; cint=.3; linw=1
+feld=tic; ptyp=hb
+===========================================================================
+feld=the; ptyp=hc; vcor=z; levs=1.50; cint=.3; cmth=fill;>
+   cosq=301.5,violet,301.8,dark.blue,302.1,blue,302.4,dark.green,>
+   302.7,green,303.0,yellow,>
+   303.3,tan,303.6,orange,303.9,red,304.2,red,304.5,med.red
+feld=prs; ptyp=hc; cint=.3; linw=1
+feld=tic; ptyp=hb
+===========================================================================
+feld=the; ptyp=hc; vcor=z; levs=4.00; cint=.5; cmth=fill;>
+   cosq=310.5,violet,311.0,dark.blue,311.5,blue,312.0,dark.green,>
+   312.5,green,313.0,yellow,>
+   313.5,tan,314.0,orange,314.5,red,315.0,red,315.5,med.red
+feld=prs; ptyp=hc; cint=.3; linw=1
+feld=tic; ptyp=hb
+===========================================================================
+feld=the; ptyp=hc; vcor=z; levs=8.00; cint=1; cmth=fill;>
+   cosq=326.,violet,326.,dark.blue,328.,blue,329.,dark.green,>
+   330.,green,331.,yellow,>
+   332.,tan,333.,orange,334.,red
+feld=prs; ptyp=hc; cint=.3; linw=1
+feld=tic; ptyp=hb
+===========================================================================
+feld=www; ptyp=hc; vcor=z; levs=0.75; cint=100; cmth=fill;>
+   cosq=-300,violet,-200,dark.blue,-100,blue,0,dark.green,>
+   100,green,200,yellow,>
+   300,tan,400,orange,500,red
+feld=tic; ptyp=hb
+===========================================================================
+feld=www; ptyp=hc; vcor=z; levs=1.50; cint=200; cmth=fill;>
+   cosq=-400,violet,-200,blue,0,dark.green,>
+   200,green,400,yellow,>
+   600,orange,800,red
+feld=tic; ptyp=hb
+===========================================================================
+feld=www; ptyp=hc; vcor=z; levs=4.00; cint=300; cmth=fill;>
+   cosq=-300,violet,0,dark.blue,300,blue,600,dark.green,>
+   900,green,1000,yellow,>
+   1300,tan,1600,orange,1900,red,2100,med.red
+feld=tic; ptyp=hb
+===========================================================================
+feld=www; ptyp=hc; vcor=z; levs=8.00; cint=500; cmth=fill;>
+   cosq=-500,violet,0,dark.blue,500,blue,1000,dark.green,>
+   1500,green,2000,yellow,>
+   2500,tan,3000,orange,3500,red
+feld=tic; ptyp=hb
+===========================================================================
+feld=qvp; ptyp=hc; vcor=z; levs=0.75; cint=.5; cmth=fill;>
+   cosq=11.,violet,11.5,dark.blue,12,blue,12.5,dark.green,>
+   13,green,13.5,yellow,>
+   14,tan,14.5,orange,15,red
+feld=tic; ptyp=hb
+===========================================================================
+feld=qvp; ptyp=hc; vcor=z; levs=1.50; cint=.5; cmth=fill;>
+   cosq=8.,violet,8.5,dark.blue,9,blue,9.5,light.blue,>
+   10.,dark.green,10.5,green,11,light.green,11.5,yellow,>
+   12,tan,12.5,orange,13,red,13.5,magenta
+feld=tic; ptyp=hb
+===========================================================================
+feld=qvp; ptyp=hc; vcor=z; levs=4.00; cint=.5; cmth=fill;>
+   cosq=2.,violet,2.5,dark.blue,3,blue,3.5,light.blue,>
+   4.,dark.green,4.5,green,5,light.green,5.5,yellow,>
+   6,tan,6.5,orange,7,red,7.5,magenta
+feld=tic; ptyp=hb
+===========================================================================
+feld=qvp; ptyp=hc; vcor=z; levs=8.00; cint=.2; cmth=fill;>
+   cosq=0.4,violet,0.6,dark.blue,0.8,blue,1,dark.green,>
+   1.2,green,1.4,yellow,>
+   1.6,tan,1.8,orange,2,red
+feld=tic; ptyp=hb
+===========================================================================
+feld=qcw; ptyp=hc; vcor=z; levs=0.75; cint=.1; cmth=fill;>
+   cosq=0.,violet,0.1,dark.blue,.2,blue,.3,dark.green,>
+   .4,green,.5,yellow,>
+   .6,tan,.7,orange,.8,red
+feld=uuu,vvv; ptyp=hv; vcmx=-1; colr=black; intv=5
+feld=tic; ptyp=hb
+===========================================================================
+feld=qcw; ptyp=hc; vcor=z; levs=1.50; cint=.2; cmth=fill;>
+   cosq=0.,violet,0.2,dark.blue,.4,blue,.6,light.blue,>
+   .8,dark.green,1.0,green,1.2,light.green,1.4,yellow,>
+   1.6,tan,1.8,orange,2.0,red
+feld=uuu,vvv; ptyp=hv; vcmx=-1; colr=black; intv=5
+feld=tic; ptyp=hb
+===========================================================================
+feld=qcw; ptyp=hc; vcor=z; levs=4.00; cint=.5; cmth=fill;>
+   cosq=0.,violet,.5,dark.blue,1,blue,1.5,dark.green,>
+   2,green,2.5,yellow,>
+   3,tan,3.5,orange,4,red,4.5,magenta
+feld=uuu,vvv; ptyp=hv; vcmx=-1; colr=black; intv=5
+feld=tic; ptyp=hb
+===========================================================================
+feld=qcw; ptyp=hc; vcor=z; levs=8.00; cint=.3; cmth=fill;>
+   cosq=0.,violet,.3,dark.blue,.6,blue,.9,light.blue,>
+   1.2,dark.green,1.5,green,1.8,light.green,2.1,yellow,>
+   2.4,tan,2.7,orange,3,red
+feld=uuu,vvv; ptyp=hv; vcmx=-1; colr=black; intv=5
+feld=tic; ptyp=hb
+===========================================================================
+feld=qra; ptyp=hc; vcor=z; levs=0.75; cint=.5; cmth=fill;>
+   cosq=0.,violet,0.5,dark.blue,1,blue,1.5,dark.green,>
+   2,green,2.5,yellow,>
+   3,tan,3.5,orange,4,red
+feld=uuu,vvv; ptyp=hv; vcmx=-1; colr=black; intv=5
+feld=tic; ptyp=hb
+===========================================================================
+feld=qra; ptyp=hc; vcor=z; levs=1.50; cint=.5; cmth=fill;>
+   cosq=0.,violet,0.5,dark.blue,1,blue,1.5,light.blue,>
+   2.,dark.green,2.5,green,3,light.green,3.5,yellow,>
+   4,tan,4.5,orange,5,red,5.5,magenta
+feld=uuu,vvv; ptyp=hv; vcmx=-1; colr=black; intv=5
+feld=tic; ptyp=hb
+===========================================================================
+feld=qra; ptyp=hc; vcor=z; levs=4.00; cint=1; cmth=fill;>
+   cosq=0.,violet,1.,dark.blue,2,blue,3.,dark.green,>
+   4,green,5,yellow,>
+   6,tan,7,orange,8,red
+feld=uuu,vvv; ptyp=hv; vcmx=-1; colr=black; intv=5
+feld=tic; ptyp=hb
+===========================================================================
+feld=qra; ptyp=hc; vcor=z; levs=8.00; cint=1; cmth=fill;>
+   cosq=0.,violet,1,dark.blue,2,blue,3,light.blue,>
+   4,dark.green,5,green,6,light.green,7,yellow,>
+   8,tan,9,orange,10,red,11,magenta
+feld=uuu,vvv; ptyp=hv; vcmx=-1; colr=black; intv=5
+feld=tic; ptyp=hb
+===========================================================================

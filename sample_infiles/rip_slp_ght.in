@@ -1,0 +1,31 @@
+ &userin
+ idotitle=1,titlecolor='def.foreground',
+ ptimes=12
+ ptimeunits='h',tacc=120,timezone=+5,iusdaylightrule=0,
+ iinittime=1,ifcsttime=1,ivalidtime=1,inearesth=0,
+ flmin=.09, frmax=.92, fbmin=.10, ftmax=.85,
+ ntextq=0,ntextcd=0,fcoffset=0.0,idotser=0,
+ idescriptive=1,icgmsplit=0,maxfld=10,itrajcalc=0,imakev5d=0
+ &end
+ &trajcalc
+ rtim=15,ctim=6,dtfile=3600.,dttraj=600.,vctraj='s',
+ xjtraj=95,90,85,80,75,70,65,80.6,80.6,80.6,80.6,80.6,80.6,
+ yitraj=50,55,60,65,70,75,80,77,77,77,77,77,77,
+ zktraj=25,25,25,25,25,25,25,27,25,22,19,16,13,
+ ihydrometeor=0
+ &end
+===========================================================================
+----------------------    Plot Specification Table    ---------------------
+===========================================================================
+feld=tmc; ptyp=hc; vcor=s; levs=27; cmth=fill; cint=1; smth=2;>
+    cosq=-10,white,-5,violet,-3,blue,-2,light.cerulean,0,light.blue,5,>
+    green,10,light.green,15,light.yellow,20,yellow,25,orange,30,red,>
+    35,dark.red
+feld=slp; ptyp=hc; vcor=p; levs=1001; cint=2; colr=black; smth=2; linw=2
+feld=tic; ptyp=hb; axlg=20; axtg=10
+feld=map; ptyp=hb; outy=PS; cint=30; ouds=solid
+===========================================================================
+feld=ght; ptyp=hc; vcor=p; levs=500; cint=60; colr=black; smth=2; linw=2
+feld=tic; ptyp=hb; axlg=20; axtg=10
+feld=map; ptyp=hb; outy=PS; cint=30; ouds=solid
+===========================================================================

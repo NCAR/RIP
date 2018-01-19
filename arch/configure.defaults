@@ -1,0 +1,101 @@
+###########################################################
+#ARCH   Compaq OSF1 alpha
+#
+FC              = f90
+FFLAGS          = -fast -convert big_endian -fpe2
+CCFLAGS         = -DLITTLE -DUNDERSCORE -c
+LDFLAGS         = 
+LOCAL_LIBS      = 
+
+###########################################################
+#ARCH   PC Linux i486 i586 i686 x86_64, PGI compiler
+#
+FC              = pgf90
+FFLAGS          = -byteswapio 
+CCFLAGS         = -DLITTLE -DUNDERSCORE -c
+LDFLAGS         = 
+LOCAL_LIBS      = -L/usr/X11R6/lib -lX11 -L/usr/local/gfortran -lgfortran
+#LOCAL_LIBS      = -L/usr/X11R6/lib -lX11 -L/usr/local/pgi/linux86/lib -lpgftnrtl -lpgc -L/usr/lib/gcc/i386-redhat-linux/3.4.6 -lg2c
+
+###########################################################
+#ARCH   PC Linux i486 i586 i686 x86_64, g95 compiler
+#
+FC              = g95
+FFLAGS          = -ffixed-form -O -fno-second-underscore
+CCFLAGS         = -DLITTLE -DUNDERSCORE -c
+LDFLAGS         =
+LOCAL_LIBS      = -L/usr/X11R6/lib -lX11 -L/usr/lib/gcc/i386-redhat-linux/3.4.6 -lgcc -lg2c
+
+###########################################################
+#ARCH   PC Linux i486 i586 i686 x86_64, gfortran compiler
+#
+FC              = gfortran
+FFLAGS          = -I. -fcray-pointer -fconvert=big-endian -frecord-marker=4 -fPIC -fno-second-underscore -fno-range-check  -O
+CCFLAGS         = -I. -DLITTLE -DUNDERSCORE -c
+LDFLAGS         =
+LOCAL_LIBS      = -L/usr/X11R6/lib64 -lX11 
+
+#LOCAL_LIBS      = -L/usr/X11R6/lib -lX11 -L/usr/lib/gcc/i386-redhat-linux/3.4.6 -lgcc -lg2c
+###########################################################
+#ARCH   PC Linux i486 i586 i686 x86_64, Intel compiler
+#
+FC              = ifort
+CC              = icc
+FFLAGS          = -I. -convert big_endian
+CCFLAGS         = -I. -DLITTLE -DUNDERSCORE -c
+LDFLAGS         = 
+#LOCAL_LIBS      = -L/usr/X11R6/lib -lX11 
+LOCAL_LIBS      = 
+
+###########################################################
+#ARCH   Darwin - with PGI compiler
+#
+FC              = pgf90
+CC              = pgcc
+FFLAGS          = -byteswapio 
+CCFLAGS         = -DLITTLE -DUNDERSCORE -c
+LDFLAGS         = 
+LOCAL_LIBS      = -L/usr/X11R6/lib -lX11 -L/usr/local/gfortran -lgfortran
+#LOCAL_LIBS     = -L${PGI}/lib -lpgftnrtl -lpgc -L/usr/X11R6/lib -L/usr/local/g95/lib/gcc-lib/i386-apple-darwin8.11.1/4.0.3 -lXpm -lX11 -lXext -lf95
+
+###########################################################
+#ARCH   Darwin - with gfortran compiler
+#
+FC              = gfortran
+CC              = gcc
+FFLAGS          = -I. -fcray-pointer -fconvert=big-endian -frecord-marker=4
+CCFLAGS         = -I. -DLITTLE -DUNDERSCORE -c
+LDFLAGS         = 
+LOCAL_LIBS      = -L/usr/X11R6/lib -lX11 -L/usr/local/gfortran -lgfortran -lgcc
+
+###########################################################
+#ARCH   Darwin - with g95 compiler
+#
+FC              = g95
+FFLAGS          = -I. 
+CCFLAGS         = -I. -DLITTLE -DUNDERSCORE -c
+LDFLAGS         = 
+LOCAL_LIBS      = -L/usr/X11R6/lib
+
+###########################################################
+#ARCH   Darwin - with xlf compiler
+#
+FC              = xlf
+FFLAGS          = -qextname
+#FFLAGS         = -qextname=premaptform:maptform:fillarray:mconvert:writefile_rdp:virtual:xtodot
+CCFLAGS         = -DLITTLE -DUNDERSCORE
+LDFLAGS         = -qarch=auto -qmaxmem=-1 -qblankpad -Wl,-stack_size,10000000,-stack_addr,0xc0000000
+LOCAL_LIBS      = -L/usr/X11R6/lib -lX11 -lm -L/usr/local/lib -L/opt/ibmcmp/xlf/8.1/lib/ -lxlf90 -lg2c
+
+###########################################################
+#ARCH   AIX
+#
+FC              = xlf
+CC              = cc
+FFLAGS          = -I.
+CCFLAGS         = -DLITTLE
+LDFLAGS         = -O3 -qarch=auto -qmaxmem=-1 -qblankpad
+LOCAL_LIBS      = -lpng_ncl -lz_ncl
+
+###########################################################
+#ARCH   NULL
